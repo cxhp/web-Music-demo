@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- 导航头 -->
+    <div v-if="$route.meta.keepAlive">
+      <keep-alive>
+        <nav-header></nav-header>
+      </keep-alive>
+
+      <!-- 内容部分 -->
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+      <!-- 底部 --> 
+      <nav-footer></nav-footer>
+     </div>
+
+     <!-- 登录页 -->
+     <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import NavHeader from './views/components/header'
+import NavFooter from './views/components/footer.vue'
+
+export default {
+  name: 'Layout',
+  components:{ 
+    NavHeader,
+    NavFooter,
+  },
 }
+</script>
+<style >
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>

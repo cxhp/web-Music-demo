@@ -13,11 +13,25 @@ const routes = [
     }
   },
 
+  // {
+  //   path: '/',
+  //   name:'Home',
+  //   meta: { keepAlive: true },
+  //   children: [
+  //     {
+  //       path: '/home',
+  //       component:()=>import('@/views/Home'),
+  //       meta: { keepAlive: true }
+  //     }
+  //   ],
+  // },
+
   {
     path: '/',
-    name:'home',
     component:()=>import('@/views/Home'),
+    name: 'home',
     meta: { 
+      title: 'about' ,
       keepAlive: true
     }
   },

@@ -1,30 +1,17 @@
 <template>
-  <div>
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item index="1">
-        <i class="el-icon-s-home"></i>
-        首页
-      </el-menu-item> 
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        分类
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-price-tag"></i>
-        标签
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-user"></i>
-        更多
-      </el-menu-item>
-    </el-menu>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../img/3.jpg"/>
+      </div>
+      <ul v-for="(ite,index) in listData" :key="index">
+        <li>
+          <router-link :to="ite.path">
+            {{ite.tit}}
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -32,30 +19,60 @@ export default {
   name:'NavHeader',
   data(){
     return{
-      activeIndex: "1"
+      activeIndex: "1",
+      listData: [
+        { tit: '首页精选',path: '/'},
+        { tit: '我的音乐',path: '/about'},
+        { tit: '排行榜',path: '/'},
+        { tit: '歌手',path: '/about'},
+        { tit: '上新',path: '/'},
+        { tit: '关于',path: '/about'},
+      ]
     }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-      switch(key){
-        case "1":
-          console.log(1111)
-          this.$router.push('/');
-        break;
-        case "2":
-          console.log(2222)
-          this.$router.push('/about');
-        break;
-      }
-
-       
-    },
+   
   }
-  
 }
 </script>
 <style scoped>
+.header{
+  margin: 0 auto;
+  width: 100%;
+  height: 70px;
+  background: #242424;
+  color: #ffffff;
+}
+.container{
+  height: 70px;
+  overflow: hidden;
+}
+.container:after{
+  display: block;
+  content: '';
+  height: 0; /**伪元素不影响页面布局 */
+  clear: both;
+  /* text-align: center; */
+}
+.logo{
+  float: left;
+}
+.logo img{
+  width: 111px;
+  height: 70px;
+}
+.container ul{
+  float: left;
+  margin-left: 30px;
+}
 
-
+.container li{
+  margin: 0 20px;
+  font-size: 18px;
+  display: inline;
+  line-height: 70px;
+}
+.container li a{
+  color: #FFF;
+} 
 </style>

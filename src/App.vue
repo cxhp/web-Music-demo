@@ -5,7 +5,6 @@
       <keep-alive>
         <nav-header></nav-header>
       </keep-alive>
-
       <!-- 内容部分 -->
       <keep-alive>
         <router-view></router-view>
@@ -21,7 +20,7 @@
 
 <script>
 import NavHeader from './views/components/header'
-import NavFooter from './views/components/footer.vue'
+import NavFooter from './views/components/footer'
 
 export default {
   name: 'Layout',

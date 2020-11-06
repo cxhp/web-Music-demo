@@ -2,7 +2,7 @@ html, body{
 
   margin: 0 auto;
 	padding: 0;
-  /* font-size: 24px; */
+  font-size: 15px;
   min-width: 330px;
   /* 常用字体设置 */
   /* 一淘 */
@@ -11,11 +11,10 @@ html, body{
   /* font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif; */
   /* 淘宝 */
   /* font: Tahoma,Helvetica,Arial,'宋体',sans-serif; */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
 }
 #app{
   margin: 0 auto;
-  width: 800px;
 }
 
 ul, li{
@@ -23,15 +22,17 @@ ul, li{
   margin: 0;
   padding: 0;
 }
-p,a,ul,li,span{
-  font-weight: 200;
+p,a,ul,ol,li,span{
+  font-weight: 300;
   border: 0;
   margin: 0;
   padding: 0;
 }
 a{
   text-decoration: none;
+  color: #333;
 }
+
 @media (max-width:800px){
   body{
     width: 100%!important;
